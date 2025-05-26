@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <style>
-        img.cloud{
-            width: 50px;
-            height: 50px;
-        }
-    </style>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="maincontainer">
-            <div class="heading" >Weather App</div>
-            <div class="box">
-                <img class="cloud" src="assets/cloud_icon.png" alt="cloud_icon">
-            </div>
+
+  <div class="maincontainer">
+    <div class="heading">Weather App</div>
+    <div class="box">
+        <div class="blacklayer"></div>
+      <input type="text" id="cityInput" placeholder="Enter city name" autofocus />
+      <button onclick="getWeather()">Get Weather</button>
+      <div class="weather-info">
+        <img id="weatherIcon" class="cloud" src="assets/cloud_icon.png" alt="Weather Icon"/>
+        <div id="weatherData"></div>
+      </div>
     </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('cityInput').addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        getWeather();
+      }
+    });
+  </script>
+  
 </body>
 </html>
